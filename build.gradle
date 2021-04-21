@@ -25,7 +25,7 @@ task clean(type: Delete) {
 }
 
 tasks.register("runOnGitHub") { // 1
-    dependsOn("addRecordSuccess")  // 2 ==> CUSTOMIZE THIS LINE
+    dependsOn("app/src/androidTest/java/com/example/chessmatch/ExampleInstrumentedTest.java:addRecordSuccess")  // 2 ==> CUSTOMIZE THIS LINE
     group = "custom"      // 3
     description = "./gradlew runOnGitHub # runs on GitHub Action" //3
 }
