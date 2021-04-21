@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBManager extends SQLiteOpenHelper {
     private static final String dbname = "chessmatchdatabase.db";
+    boolean successful = false;
 
     public DBManager(Context context) {
         super(context, dbname, null, 1);
@@ -35,10 +36,13 @@ public class DBManager extends SQLiteOpenHelper {
 
         long res = db.insert("recentmove", null, cv);
 
-        if (res == -1)
+        if (res == -1) {
+            successful = false;
             return "Failed";
-        else
+        } else {
+            successful = true;
             return "Successfully inserted";
+        }
     }
 
     public Cursor getRecentMove() {

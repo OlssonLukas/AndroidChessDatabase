@@ -2,6 +2,7 @@ package com.example.chessmatch;
 
 import android.content.Context;
 
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -17,10 +18,18 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
+    private Context context = ApplicationProvider.getApplicationContext();
     @Test
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.chessmatch", appContext.getPackageName());
+    }
+
+    @Test
+    public void addRecordSuccess() {
+        DBManager dbManager = new DBManager(context);
+        assertTrue(dbManager.successful);
     }
 }
