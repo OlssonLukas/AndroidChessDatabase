@@ -25,7 +25,6 @@ task clean(type: Delete) {
 }
 
 tasks.register("runOnGitHub") { // 1
-    dependsOn(":app:addRecordSuccess")  // 2 ==> CUSTOMIZE THIS LINE
     group = "custom"      // 3
     description = "./gradlew runOnGitHub # runs on GitHub Action" //3
 }
