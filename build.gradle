@@ -7,6 +7,8 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,7 +27,7 @@ task clean(type: Delete) {
 }
 
 tasks.register("runOnGitHub") { // 1
-    dependsOn("app/src/androidTest/java/com/example/chessmatch/ExampleInstrumentedTest.java:addRecordSuccess")  // 2 ==> CUSTOMIZE THIS LINE
+    dependsOn(":chessmatch:addRecordSuccess")  // 2 ==> CUSTOMIZE THIS LINE
     group = "custom"      // 3
     description = "./gradlew runOnGitHub # runs on GitHub Action" //3
 }
